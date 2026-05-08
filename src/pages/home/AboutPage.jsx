@@ -4,22 +4,22 @@ import { TIMELINE } from '../../data/mockData';
 const GALLERY_TABS = ['الحرم الجامعي', 'المختبرات', 'فعاليات'];
 const GALLERY_IMAGES = {
   'الحرم الجامعي': [
-    'https://images.unsplash.com/photo-1562774053-701939374585?w=600',
-    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600',
-    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600',
-    'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600',
+    '/assets/images/campus-main.jpg',
+    '/assets/images/news-accreditation.jpg',
+    '/assets/images/gallery-campus-hall.jpeg',
+    '/assets/images/gallery-campus-classroom.jpg',
   ],
   'المختبرات': [
-    'https://images.unsplash.com/photo-1532094349884-543559127730?w=600',
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600',
-    'https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?w=600',
-    'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600',
+    '/assets/images/gallery-lab-chemistry.jpg',
+    '/assets/images/gallery-lab-engineering.jpg',
+    '/assets/images/gallery-lab-research.jpg',
+    '/assets/images/gallery-lab-design.jpg',
   ],
   'فعاليات': [
-    'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600',
-    'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600',
-    'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600',
-    'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600',
+    '/assets/images/gallery-event-conference.jpg',
+    '/assets/images/gallery-event-workshop.jpg',
+    '/assets/images/gallery-event-music.jpg',
+    '/assets/images/gallery-event-corporate.jpg',
   ],
 };
 
@@ -31,7 +31,7 @@ const AboutPage = () => {
     <div className="pt-20">
       {/* Hero Banner */}
       <div className="relative h-64 md:h-80 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=1600" alt="About" className="w-full h-full object-cover" />
+        <img src="/assets/images/campus-main.jpg" alt="About" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-950/80 to-primary-950/60 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-black mb-2" style={{ fontFamily: 'Cairo' }}>عن الجامعة</h1>
@@ -63,7 +63,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             <div className="text-center md:text-right">
               <img
-                src="https://ui-avatars.com/api/?name=عبدالله+الرشيد&background=4f46e5&color=fff&size=200"
+                src="/assets/images/president-abdullah.png"
                 alt="رئيس الجامعة"
                 className="w-36 h-36 rounded-2xl mx-auto md:mx-0 ring-4 ring-primary-100 dark:ring-primary-900/30 mb-4"
               />

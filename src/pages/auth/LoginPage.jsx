@@ -21,23 +21,28 @@ const LoginPage = () => {
   const [forgotEmail, setForgotEmail] = useState('');
   const [forgotSent, setForgotSent] = useState(false);
 
+  const normalizeEmail = v => v.trim().toLowerCase();
+
   const validateEmail = v => {
-    if (v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) setEmailErr('بريد إلكتروني غير صحيح');
+    const value = normalizeEmail(v);
+    if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) setEmailErr('بريد إلكتروني غير صحيح');
     else setEmailErr('');
   };
 
   const handleLogin = async e => {
     e.preventDefault();
-    if (emailErr) return;
+    const normalizedEmail = normalizeEmail(email);
+    validateEmail(normalizedEmail);
+    if (!normalizedEmail || !password || (normalizedEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail))) return;
     setLoading(true);
     await new Promise(r => setTimeout(r, 900));
-    const u = USERS[email];
+    const u = USERS[normalizedEmail];
     if (!u || u.password !== password) {
       addToast('البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
       setLoading(false);
       return;
     }
-    login({ email, name: u.name, role: u.role });
+    login({ email: normalizedEmail, name: u.name, role: u.role });
     addToast(`أهلاً بك، ${u.name}`, 'success');
     navigate(`/${u.role}`);
   };
@@ -87,12 +92,12 @@ const LoginPage = () => {
         <div className="p-4 mb-6 text-xs space-y-1.5" style={{ background: 'rgba(200,169,110,0.08)', border: '1px solid rgba(200,169,110,0.2)', borderRadius: '2px' }}>
           <p className="font-semibold mb-2" style={{ color: '#C8A96E' }}>حسابات تجريبية:</p>
           {Object.entries(USERS).map(([em, u]) => (
-            <button key={em} onClick={() => { setEmail(em); setPassword(u.password); }}
+            <button key={em} onClick={() => { setEmail(em); setPassword(u.password); setEmailErr(''); }}
               className="block w-full text-right transition-colors py-0.5"
               style={{ color: '#8A8A7A', fontFamily: "'JetBrains Mono', monospace" }}
               onMouseEnter={e => e.currentTarget.style.color = '#E8E2D8'}
               onMouseLeave={e => e.currentTarget.style.color = '#8A8A7A'}>
-              {em} / 123456
+              <span dir="ltr">{em} / 123456</span>
             </button>
           ))}
         </div>
@@ -100,15 +105,32 @@ const LoginPage = () => {
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="input-label" style={{ color: '#8A8A7A' }}>البريد الإلكتروني</label>
-            <input type="email" className="input-field" placeholder="you@uni.edu" value={email}
-              onChange={e => { setEmail(e.target.value); validateEmail(e.target.value); }} />
+            <input
+              type="email"
+              className="input-field"
+              placeholder="you@uni.edu"
+              value={email}
+              dir="ltr"
+              autoComplete="username"
+              style={{ direction: 'ltr', textAlign: 'left' }}
+              onChange={e => { setEmail(e.target.value); validateEmail(e.target.value); }}
+              onBlur={e => { const v = normalizeEmail(e.target.value); setEmail(v); validateEmail(v); }}
+            />
             {emailErr && <p className="input-error">{emailErr}</p>}
           </div>
           <div>
             <label className="input-label" style={{ color: '#8A8A7A' }}>كلمة المرور</label>
             <div className="relative">
-              <input type={showPass ? 'text' : 'password'} className="input-field pl-10" placeholder="••••••••" value={password}
-                onChange={e => setPassword(e.target.value)} />
+              <input
+                type={showPass ? 'text' : 'password'}
+                className="input-field pl-10"
+                placeholder="••••••••"
+                value={password}
+                autoComplete="current-password"
+                dir="ltr"
+                style={{ direction: 'ltr', textAlign: 'left' }}
+                onChange={e => setPassword(e.target.value)}
+              />
               <button type="button" onClick={() => setShowPass(v => !v)}
                 className="absolute left-3 top-1/2 -translate-y-1/2 transition-colors"
                 style={{ color: '#6A6A5A' }}>

@@ -11,7 +11,7 @@ const AdminContentPage = () => {
 
   const handlePublish = () => {
     if (!form.title || !form.excerpt) { addToast('يرجى ملء العنوان والمحتوى', 'error'); return; }
-    const newItem = { id: Date.now(), ...form, date: new Date().toISOString().split('T')[0], image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600' };
+    const newItem = { id: Date.now(), ...form, date: new Date().toISOString().split('T')[0], image: '/assets/images/news-accreditation.jpg' };
     setNews(n => [newItem, ...n]);
     setForm({ title: '', excerpt: '', category: 'إنجازات', scheduled: '', published: false });
     addToast('تم نشر الخبر بنجاح', 'success');

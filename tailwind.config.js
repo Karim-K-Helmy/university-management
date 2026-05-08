@@ -11,6 +11,9 @@ module.exports = {
         mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {
+        primary: { 50: "#F1F7EE", 100: "#DCEBD5", 200: "#BBD7AE", 300: "#96BE83", 400: "#6FA157", 500: "#4F843C", 600: "#2D4A22", 700: "#243D1B", 800: "#1E3217", 900: "#152410" },
+        accent:  { 50: "#FFF8EA", 100: "#F8EAC5", 200: "#EFD99D", 300: "#E4C273", 400: "#D8B052", 500: "#C8A96E", 600: "#A88A4E", 700: "#806636", 800: "#5E4926", 900: "#3D301A" },
+        dark:    { bg: "#0F130C", card: "#161A12", border: "#2A2E24" },
         forest:  { DEFAULT: "#2D4A22", light: "#3D6130", dark: "#1E3217", muted: "#4A6E3A" },
         gold:    { DEFAULT: "#C8A96E", light: "#D9BF8E", dark: "#A88A4E", pale: "#F0E6D0" },
         cream:   { DEFAULT: "#F5F0E8", dark: "#EAE2D4", deep: "#DDD3C2" },
@@ -19,6 +22,7 @@ module.exports = {
         slate:   { DEFAULT: "#3A4A52", light: "#4E6270" },
       },
       spacing: { 18: "4.5rem", 22: "5.5rem", 26: "6.5rem" },
+      boxShadow: { glow: "0 10px 30px rgba(45,74,34,0.22)" },
       fontSize: {
         "display-2xl": ["clamp(3rem,6vw,5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
         "display-xl":  ["clamp(2rem,4vw,3.5rem)",  { lineHeight: "1.1",  letterSpacing: "-0.015em" }],

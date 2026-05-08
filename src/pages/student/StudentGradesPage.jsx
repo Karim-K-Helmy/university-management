@@ -3,14 +3,14 @@ import DashboardLayout from '../../components/layout/DashboardLayout';
 import { STUDENT_COURSES } from '../../data/mockData';
 
 const GRADE_LETTERS = (g) => {
-  if (!g) return { letter: 'جارية', color: 'text-blue-500' };
-  if (g >= 95) return { letter: 'A+', color: 'text-green-600' };
-  if (g >= 90) return { letter: 'A',  color: 'text-green-600' };
-  if (g >= 85) return { letter: 'B+', color: 'text-primary-600' };
-  if (g >= 80) return { letter: 'B',  color: 'text-primary-600' };
-  if (g >= 75) return { letter: 'C+', color: 'text-yellow-600' };
-  if (g >= 70) return { letter: 'C',  color: 'text-yellow-600' };
-  return { letter: 'D', color: 'text-red-500' };
+  if (!g) return { letter: 'جارية', color: 'grade-letter grade-letter-progress' };
+  if (g >= 95) return { letter: 'A+', color: 'grade-letter grade-letter-success' };
+  if (g >= 90) return { letter: 'A',  color: 'grade-letter grade-letter-success' };
+  if (g >= 85) return { letter: 'B+', color: 'grade-letter grade-letter-good' };
+  if (g >= 80) return { letter: 'B',  color: 'grade-letter grade-letter-good' };
+  if (g >= 75) return { letter: 'C+', color: 'grade-letter grade-letter-warn' };
+  if (g >= 70) return { letter: 'C',  color: 'grade-letter grade-letter-warn' };
+  return { letter: 'D', color: 'grade-letter grade-letter-danger' };
 };
 
 const GPA = 3.7;
@@ -72,11 +72,11 @@ const StudentGradesPage = () => (
                   <tr key={c.id}>
                     <td className="font-semibold text-gray-900 dark:text-white">{c.name}</td>
                     <td><span className="badge-primary text-xs">{c.code}</span></td>
-                    <td>{c.grade ? Math.round(c.grade * 0.3) : '—'}</td>
-                    <td>{c.grade ? Math.round(c.grade * 0.3) : '—'}</td>
-                    <td>{c.grade ? Math.round(c.grade * 0.4) : '—'}</td>
-                    <td className="font-bold text-gray-900 dark:text-white">{c.grade || '—'}</td>
-                    <td><span className={`font-black text-lg ${gl.color}`}>{gl.letter}</span></td>
+                    <td><span className="grade-pill">{c.grade ? Math.round(c.grade * 0.3) : '—'}</span></td>
+                    <td><span className="grade-pill">{c.grade ? Math.round(c.grade * 0.3) : '—'}</span></td>
+                    <td><span className="grade-pill">{c.grade ? Math.round(c.grade * 0.4) : '—'}</span></td>
+                    <td><span className="grade-pill grade-pill-total">{c.grade || '—'}</span></td>
+                    <td><span className={gl.color}>{gl.letter}</span></td>
                   </tr>
                 );
               })}

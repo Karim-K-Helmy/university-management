@@ -11,7 +11,7 @@ const MENUS = {
 const ROLE_BADGE = { student:'طالب', instructor:'عضو هيئة تدريس', admin:'مشرف النظام' };
 
 const DashboardLayout = ({ children, role }) => {
-  const { user, logout, darkMode, toggleDark } = useApp();
+  const { user, logout, darkMode, toggleDark, language, toggleLang, t } = useApp();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const loc = useLocation();
@@ -29,7 +29,7 @@ const DashboardLayout = ({ children, role }) => {
         <div className="w-8 h-8 flex items-center justify-center flex-shrink-0" style={{ background: '#2D4A22', borderRadius: '2px' }}>
           <i className="fa-solid fa-graduation-cap text-xs" style={{ color: '#C8A96E' }} />
         </div>
-        {!collapsed && <span className="font-bold text-sm" style={{ fontFamily: "'Noto Serif Arabic', serif", color: darkMode ? '#E8E2D8' : '#1A1A14' }}>جامعة المستقبل</span>}
+        {!collapsed && <span className="font-bold text-sm" style={{ fontFamily: "'Noto Serif Arabic', serif", color: darkMode ? '#E8E2D8' : '#1A1A14' }}>{t('future_uni')}</span>}
       </div>
 
       {/* User */}
@@ -68,17 +68,21 @@ const DashboardLayout = ({ children, role }) => {
       <div className="px-3 pb-4 space-y-0.5" style={{ borderTop: `1px solid ${border}`, paddingTop: '0.75rem', marginTop: '0.75rem' }}>
         <button onClick={toggleDark} className={`sidebar-link w-full ${collapsed ? 'justify-center px-2' : ''}`}>
           <i className={`fa-solid ${darkMode ? 'fa-sun' : 'fa-moon'} text-sm w-4 text-center`} />
-          {!collapsed && <span>{darkMode ? 'وضع النهار' : 'الوضع الليلي'}</span>}
+          {!collapsed && <span>{darkMode ? t('theme_light') : t('theme_dark')}</span>}
+        </button>
+        <button onClick={toggleLang} className={`sidebar-link w-full ${collapsed ? 'justify-center px-2' : ''}`}>
+          <i className="fa-solid fa-language text-sm w-4 text-center" />
+          {!collapsed && <span>{language === 'ar' ? 'English' : 'العربية'}</span>}
         </button>
         <Link to="/" className={`sidebar-link w-full ${collapsed ? 'justify-center px-2' : ''}`}>
           <i className="fa-solid fa-globe text-sm w-4 text-center" />
-          {!collapsed && <span>الموقع العام</span>}
+          {!collapsed && <span>{t('public_site')}</span>}
         </Link>
         <button onClick={() => { logout(); navigate('/login'); }}
           className={`sidebar-link w-full ${collapsed ? 'justify-center px-2' : ''}`}
           style={{ color: '#8B3A2A' }}>
           <i className="fa-solid fa-right-from-bracket text-sm w-4 text-center" />
-          {!collapsed && <span>تسجيل خروج</span>}
+          {!collapsed && <span>{t('logout')}</span>}
         </button>
       </div>
     </div>
@@ -116,7 +120,7 @@ const DashboardLayout = ({ children, role }) => {
             <i className="fa-solid fa-bars text-sm" />
           </button>
           <span className="font-semibold text-sm" style={{ fontFamily: "'Noto Serif Arabic', serif", color: darkMode ? '#E8E2D8' : '#1A1A14' }}>
-            {menu.find(m => m.path === loc.pathname)?.label || 'لوحة التحكم'}
+            {menu.find(m => m.path === loc.pathname)?.label || t('dashboard')}
           </span>
           <div className="w-8 h-8 flex items-center justify-center font-bold text-xs"
             style={{ background: '#2D4A22', color: '#C8A96E', borderRadius: '2px' }}>

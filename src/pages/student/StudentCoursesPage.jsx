@@ -13,9 +13,9 @@ const StudentCoursesPage = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {STUDENT_COURSES.map(c => (
-            <Link key={c.id} to={`/student/courses/${c.id}`} className="card-hover p-5">
+            <Link key={c.id} to={`/student/courses/${c.id}`} className="card-hover dashboard-course-card p-5">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white flex-shrink-0 shadow-glow">
+                <div className="dashboard-icon w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white flex-shrink-0 shadow-glow">
                   <i className="fa-solid fa-book-open" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -23,12 +23,12 @@ const StudentCoursesPage = () => {
                     <h3 className="font-bold text-gray-900 dark:text-white truncate">{c.name}</h3>
                     <span className="badge-primary text-xs flex-shrink-0 mr-2">{c.code}</span>
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{c.doctor}</p>
-                  <div className="flex items-center gap-4 text-xs text-gray-400">
+                  <p className="text-sm text-gray-500 dark:text-cream-deep mb-3">{c.doctor}</p>
+                  <div className="course-meta flex items-center gap-4 text-xs text-gray-500 dark:text-cream-deep">
                     <span><i className="fa-solid fa-play-circle ml-1" />{c.lectures} محاضرة</span>
                     <span><i className="fa-solid fa-clock ml-1" />{c.credits} ساعات</span>
                     {c.grade !== null ? (
-                      <span className={`font-bold ${c.grade >= 90 ? 'text-green-600' : c.grade >= 75 ? 'text-primary-600' : 'text-orange-500'}`}>
+                      <span className="grade-inline">
                         <i className="fa-solid fa-star ml-1" /> الدرجة: {c.grade}
                       </span>
                     ) : (

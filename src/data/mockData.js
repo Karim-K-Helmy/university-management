@@ -16,42 +16,42 @@ export const PROGRAMS = [
     id: 1, title: 'هندسة الحاسبات', college: 'كلية الهندسة',
     description: 'برنامج متكامل يجمع بين علوم الحاسب والهندسة الكهربية لتخريج مهندسين متميزين.',
     icon: 'fa-microchip', duration: '5 سنوات', mode: 'انتظام',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600',
+    image: '/assets/images/program-computer-engineering.jpg',
     color: 'from-blue-600 to-blue-800', seats: 60,
   },
   {
     id: 2, title: 'علوم البيانات', college: 'كلية الحاسبات',
     description: 'تعلّم تحليل البيانات الضخمة وبناء نماذج الذكاء الاصطناعي بأحدث الأدوات.',
     icon: 'fa-chart-bar', duration: '4 سنوات', mode: 'انتظام',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600',
+    image: '/assets/images/program-data.jpg',
     color: 'from-purple-600 to-purple-800', seats: 80,
   },
   {
     id: 3, title: 'إدارة الأعمال', college: 'كلية إدارة الأعمال',
     description: 'تأهيل قادة الأعمال المستقبليين بمهارات الإدارة الحديثة والريادة.',
     icon: 'fa-chart-line', duration: '4 سنوات', mode: 'انتظام',
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600',
+    image: '/assets/images/program-business.jpg',
     color: 'from-green-600 to-green-800', seats: 100,
   },
   {
     id: 4, title: 'هندسة البرمجيات', college: 'كلية الهندسة',
     description: 'بناء تطبيقات متقدمة وتعلّم منهجيات التطوير الحديثة كـ Agile وDevOps.',
     icon: 'fa-code', duration: '4 سنوات', mode: 'انتظام',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600',
+    image: '/assets/images/program-software.jpg',
     color: 'from-orange-600 to-orange-800', seats: 70,
   },
   {
     id: 5, title: 'الذكاء الاصطناعي', college: 'كلية الحاسبات',
     description: 'أكثر التخصصات طلباً في سوق العمل. تعلّم ML, Deep Learning, NLP.',
     icon: 'fa-robot', duration: '4 سنوات', mode: 'اونلاين',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600',
+    image: '/assets/images/program-ai.jpg',
     color: 'from-red-600 to-red-800', seats: 50,
   },
   {
     id: 6, title: 'ريادة الأعمال', college: 'كلية إدارة الأعمال',
     description: 'من الفكرة للمشروع الناجح. تعلّم بناء الشركات الناشئة وجذب الاستثمارات.',
     icon: 'fa-rocket', duration: '2 سنوات', mode: 'مسائي',
-    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600',
+    image: '/assets/images/program-entrepreneurship.jpg',
     color: 'from-teal-600 to-teal-800', seats: 45,
   },
 ];
@@ -61,51 +61,51 @@ export const NEWS = [
     id: 1,
     title: 'الجامعة تحصل على اعتماد دولي من المنظمة العربية لضمان الجودة',
     date: '2024-03-10', category: 'إنجازات',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600',
+    image: '/assets/images/news-accreditation.jpg',
     excerpt: 'في خطوة تاريخية، حصلت جامعة المستقبل على الاعتماد الدولي المرموق...',
   },
   {
     id: 2,
     title: 'انطلاق مسابقة الابتكار والبرمجة للطلاب لعام 2024',
     date: '2024-03-05', category: 'فعاليات',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600',
+    image: '/assets/images/news-innovation.jpg',
     excerpt: 'تعلن الجامعة عن انطلاق النسخة الثالثة من مسابقة الابتكار...',
   },
   {
     id: 3,
     title: 'توقيع اتفاقية تعاون مع شركة مايكروسوفت للتدريب التقني',
     date: '2024-02-28', category: 'شراكات',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600',
+    image: '/assets/images/news-partnership.jpg',
     excerpt: 'وقّعت الجامعة اتفاقية شراكة استراتيجية مع مايكروسوفت...',
   },
   {
     id: 4,
     title: 'افتتاح مختبر الواقع الافتراضي والمعزز في كلية الهندسة',
     date: '2024-02-20', category: 'تطوير',
-    image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=600',
+    image: '/assets/images/news-vr.jpg',
     excerpt: 'افتتحت الجامعة اليوم مختبراً متطوراً للواقع الافتراضي...',
   },
 ];
 
 export const FACULTY = [
-  { id: 1, name: 'أ.د. محمد العمري', title: 'عميد كلية الهندسة', department: 'هندسة الحاسبات', email: 'omari@uni.edu', image: 'https://ui-avatars.com/api/?name=محمد+العمري&background=4f46e5&color=fff&size=200' },
-  { id: 2, name: 'د. سارة الأحمدي', title: 'رئيسة قسم علوم البيانات', department: 'كلية الحاسبات', email: 'ahmadi@uni.edu', image: 'https://ui-avatars.com/api/?name=سارة+الأحمدي&background=f97316&color=fff&size=200' },
-  { id: 3, name: 'د. خالد السعدي', title: 'أستاذ الذكاء الاصطناعي', department: 'كلية الحاسبات', email: 'saadi@uni.edu', image: 'https://ui-avatars.com/api/?name=خالد+السعدي&background=059669&color=fff&size=200' },
-  { id: 4, name: 'أ.د. نورة المنصور', title: 'عميدة كلية إدارة الأعمال', department: 'إدارة الأعمال', email: 'mansour@uni.edu', image: 'https://ui-avatars.com/api/?name=نورة+المنصور&background=7c3aed&color=fff&size=200' },
+  { id: 1, name: 'أ.د. محمد العمري', title: 'عميد كلية الهندسة', department: 'هندسة الحاسبات', email: 'omari@uni.edu', image: '/assets/images/faculty-mohammed.png' },
+  { id: 2, name: 'د. سارة الأحمدي', title: 'رئيسة قسم علوم البيانات', department: 'كلية الحاسبات', email: 'ahmadi@uni.edu', image: '/assets/images/faculty-sara.png' },
+  { id: 3, name: 'د. خالد السعدي', title: 'أستاذ الذكاء الاصطناعي', department: 'كلية الحاسبات', email: 'saadi@uni.edu', image: '/assets/images/faculty-khaled.png' },
+  { id: 4, name: 'أ.د. نورة المنصور', title: 'عميدة كلية إدارة الأعمال', department: 'إدارة الأعمال', email: 'mansour@uni.edu', image: '/assets/images/faculty-noura.png' },
 ];
 
 export const TESTIMONIALS = [
-  { id: 1, name: 'أحمد الشمري', program: 'هندسة البرمجيات', year: 2023, text: 'الجامعة غيّرت مسيرتي المهنية بالكامل. الأساتذة متميزون والمناخ الأكاديمي يحفّز على الابتكار.', rating: 5, avatar: 'https://ui-avatars.com/api/?name=أحمد+الشمري&background=4f46e5&color=fff' },
-  { id: 2, name: 'فاطمة القحطاني', program: 'علوم البيانات', year: 2023, text: 'حصلت على وظيفة في شركة كبرى قبل التخرج بثلاثة أشهر! البرنامج يركز على التطبيق العملي.', rating: 5, avatar: 'https://ui-avatars.com/api/?name=فاطمة+القحطاني&background=f97316&color=fff' },
-  { id: 3, name: 'عمر الحربي', program: 'إدارة الأعمال', year: 2022, text: 'المنح الدراسية والدعم المقدم للطلاب لا مثيل لهم. أنصح كل طالب طموح بالالتحاق بهذه الجامعة.', rating: 5, avatar: 'https://ui-avatars.com/api/?name=عمر+الحربي&background=059669&color=fff' },
+  { id: 1, name: 'أحمد الشمري', program: 'هندسة البرمجيات', year: 2023, text: 'الجامعة غيّرت مسيرتي المهنية بالكامل. الأساتذة متميزون والمناخ الأكاديمي يحفّز على الابتكار.', rating: 5, avatar: '/assets/images/student-ahmed.jpg' },
+  { id: 2, name: 'فاطمة القحطاني', program: 'علوم البيانات', year: 2023, text: 'حصلت على وظيفة في شركة كبرى قبل التخرج بثلاثة أشهر! البرنامج يركز على التطبيق العملي.', rating: 5, avatar: '/assets/images/student-fatima.png' },
+  { id: 3, name: 'عمر الحربي', program: 'إدارة الأعمال', year: 2022, text: 'المنح الدراسية والدعم المقدم للطلاب لا مثيل لهم. أنصح كل طالب طموح بالالتحاق بهذه الجامعة.', rating: 5, avatar: '/assets/images/student-omar.jpg' },
 ];
 
 export const PARTNERS = [
-  { id: 1, name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png' },
-  { id: 2, name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png' },
-  { id: 3, name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png' },
-  { id: 4, name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png' },
-  { id: 5, name: 'Oracle', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/200px-Oracle_logo.svg.png' },
+  { id: 1, name: 'Microsoft', logo: '/assets/images/partner-microsoft.png' },
+  { id: 2, name: 'Google', logo: '/assets/images/partner-google.png' },
+  { id: 3, name: 'Amazon', logo: '/assets/images/partner-amazon.png' },
+  { id: 4, name: 'IBM', logo: '/assets/images/partner-ibm.png' },
+  { id: 5, name: 'Oracle', logo: '/assets/images/partner-oracle.png' },
 ];
 
 export const TIMELINE = [

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext';
 import { ToastContainer } from './components/common/Toast';
+import LanguageHydrator from './components/common/LanguageHydrator';
 
 // Layouts
 import PublicLayout from './components/layout/PublicLayout';
@@ -15,6 +16,7 @@ import ApplyPage from './pages/admissions/ApplyPage';
 import AdmissionStatusPage from './pages/admissions/AdmissionStatusPage';
 import LoginPage from './pages/auth/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { FaqPage, StudentGuidePage, ContactAdminPage, AdmissionsServicesPage } from './pages/support/SupportPages';
 
 // Student Pages
 import StudentDashboard from './pages/student/StudentDashboard';
@@ -52,6 +54,11 @@ const AppRoutes = () => (
     <Route path="/programs/:id" element={<PublicLayout><ProgramDetailPage /></PublicLayout>} />
     <Route path="/admissions/apply" element={<PublicLayout><ApplyPage /></PublicLayout>} />
     <Route path="/admissions/status" element={<PublicLayout><AdmissionStatusPage /></PublicLayout>} />
+    <Route path="/admissions/services" element={<PublicLayout><AdmissionsServicesPage /></PublicLayout>} />
+    <Route path="/faq" element={<PublicLayout><FaqPage /></PublicLayout>} />
+    <Route path="/student-guide" element={<PublicLayout><StudentGuidePage /></PublicLayout>} />
+    <Route path="/contact-admin" element={<PublicLayout><ContactAdminPage /></PublicLayout>} />
+    <Route path="/contact" element={<PublicLayout><ContactAdminPage /></PublicLayout>} />
     <Route path="/login" element={<LoginPage />} />
 
     {/* Student */}
@@ -81,6 +88,7 @@ const AppRoutes = () => (
 const App = () => (
   <AppProvider>
     <BrowserRouter>
+      <LanguageHydrator />
       <AppRoutes />
       <ToastContainer />
     </BrowserRouter>

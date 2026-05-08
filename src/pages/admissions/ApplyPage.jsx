@@ -75,7 +75,7 @@ const ApplyPage = () => {
   );
 
   return (
-    <div className="pt-24 pb-12 min-h-screen bg-gray-50 dark:bg-dark-900">
+    <div className="pt-24 pb-12 min-h-screen apply-page bg-gray-50 dark:bg-dark-bg">
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-10">
@@ -90,10 +90,10 @@ const ApplyPage = () => {
             {STEPS.map((s, i) => (
               <React.Fragment key={i}>
                 <div className="flex flex-col items-center">
-                  <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${i < step ? 'bg-green-500 text-white' : i === step ? 'bg-primary-600 text-white shadow-glow' : 'bg-gray-200 dark:bg-dark-border text-gray-400'}`}>
+                  <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${i < step ? 'bg-green-500 text-white' : i === step ? 'bg-primary-600 text-white shadow-glow' : 'bg-gray-200 dark:bg-[#2A2E24] text-gray-700 dark:text-[#E8E2D8]'}`}>
                     {i < step ? <i className="fa-solid fa-check" /> : i + 1}
                   </div>
-                  <span className={`text-[10px] mt-1 hidden md:block ${i === step ? 'text-primary-600 font-bold' : 'text-gray-400'}`}>{s}</span>
+                  <span className={`text-[10px] mt-1 hidden md:block ${i === step ? 'text-primary-600 font-bold' : 'text-gray-600 dark:text-[#D8CCB8]'}`}>{s}</span>
                 </div>
                 {i < STEPS.length - 1 && <div className={`flex-1 h-1 mx-2 rounded-full transition-all duration-500 ${i < step ? 'bg-green-500' : 'bg-gray-200 dark:bg-dark-border'}`} />}
               </React.Fragment>
@@ -102,7 +102,7 @@ const ApplyPage = () => {
         </div>
 
         {/* Form Card */}
-        <div className="card p-6 md:p-8">
+        <div className="card p-6 md:p-8 apply-card">
           <h2 className="text-xl font-black text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             <span className="w-8 h-8 rounded-lg bg-primary-600 text-white flex items-center justify-center text-sm">{step + 1}</span>
             {STEPS[step]}
@@ -172,7 +172,7 @@ const ApplyPage = () => {
               >
                 <i className={`fa-solid fa-cloud-arrow-up text-5xl mb-3 block ${dragOver ? 'text-primary-500' : 'text-gray-300 dark:text-dark-border'}`} />
                 <p className="font-semibold text-gray-700 dark:text-gray-300 mb-1">اسحب الملفات هنا أو انقر للاختيار</p>
-                <p className="text-xs text-gray-400">PDF, JPG, PNG — بحد أقصى 5 ميجابايت لكل ملف</p>
+                <p className="text-xs text-gray-500 dark:text-[#D8CCB8]">PDF, JPG, PNG — بحد أقصى 5 ميجابايت لكل ملف</p>
                 <input id="fileInput" type="file" multiple accept=".pdf,.jpg,.jpeg,.png" className="hidden" onChange={handleFileDrop} />
               </div>
               {errors.files && <p className="input-error"><i className="fa-solid fa-circle-exclamation" /> {errors.files}</p>}
@@ -184,7 +184,7 @@ const ApplyPage = () => {
                     <div key={i} className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-900/30 rounded-xl">
                       <i className="fa-solid fa-file-check text-green-600" />
                       <span className="flex-1 text-sm text-gray-700 dark:text-gray-300 truncate">{f.name}</span>
-                      <span className="text-xs text-gray-400">{(f.size / 1024).toFixed(0)} KB</span>
+                      <span className="text-xs text-gray-500 dark:text-[#D8CCB8]">{(f.size / 1024).toFixed(0)} KB</span>
                       <button onClick={() => removeFile(i)} className="text-red-400 hover:text-red-600"><i className="fa-solid fa-xmark" /></button>
                     </div>
                   ))}
@@ -208,14 +208,14 @@ const ApplyPage = () => {
                   ['المستندات', `${form.files.length} ملف`],
                 ].map(([label, value]) => (
                   <div key={label} className="card p-4">
-                    <p className="text-xs text-gray-400 mb-1">{label}</p>
+                    <p className="text-xs text-gray-500 dark:text-[#D8CCB8] mb-1">{label}</p>
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">{value || '—'}</p>
                   </div>
                 ))}
               </div>
               <label className="flex items-start gap-3 cursor-pointer group">
                 <input type="checkbox" checked={agreed} onChange={e => setAgreed(e.target.checked)} className="mt-1 w-5 h-5 rounded accent-primary-600 cursor-pointer" />
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-sm text-gray-700 dark:text-[#D8CCB8]">
                   أوافق على <span className="text-primary-600 hover:underline cursor-pointer">الشروط والأحكام</span> وأؤكد أن جميع البيانات المدخلة صحيحة ودقيقة.
                 </span>
               </label>
@@ -247,11 +247,11 @@ const ApplyPage = () => {
             <i className="fa-solid fa-circle-check text-green-600 text-4xl" />
           </div>
           <h3 className="text-xl font-black text-gray-900 dark:text-white mb-2">تم استلام طلبك!</h3>
-          <p className="text-gray-500 mb-2">رقم طلبك المرجعي:</p>
+          <p className="text-gray-600 dark:text-[#D8CCB8] mb-2">رقم طلبك المرجعي:</p>
           <div className="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-xl px-6 py-3 font-mono text-primary-700 dark:text-primary-300 text-lg font-bold mb-4">
             {appNumber}
           </div>
-          <p className="text-gray-400 text-sm mb-6">سيتم التواصل معك عبر البريد الإلكتروني خلال 5 أيام عمل.</p>
+          <p className="text-gray-500 dark:text-[#D8CCB8] text-sm mb-6">سيتم التواصل معك عبر البريد الإلكتروني خلال 5 أيام عمل.</p>
           <div className="flex gap-3">
             <button onClick={() => window.print()} className="flex-1 btn-outline text-sm py-2">
               <i className="fa-solid fa-print ml-1" /> طباعة

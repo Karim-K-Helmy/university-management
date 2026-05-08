@@ -44,14 +44,14 @@ const StudentDashboard = () => {
             { label: 'ساعات مكتملة', value: 87, suffix: '', color: 'text-green-600', sub: 'من 160', icon: 'fa-check-circle', iconBg: 'bg-green-100 dark:bg-green-900/30 text-green-600' },
             { label: 'تكليفات قادمة', value: todos.filter(t => !t.done && t.urgent).length, suffix: '', color: 'text-red-500', sub: 'عاجل', icon: 'fa-triangle-exclamation', iconBg: 'bg-red-100 dark:bg-red-900/30 text-red-600' },
           ].map(({ label, value, suffix, color, sub, icon, iconBg }) => (
-            <div key={label} className="stat-card">
+            <div key={label} className="stat-card dashboard-stat-card">
               <div className={`stat-icon ${iconBg}`}>
                 <i className={`fa-solid ${icon}`} />
               </div>
               <div>
                 <p className={`text-2xl font-black ${color}`}>{value}{suffix}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{label}</p>
-                <p className="text-xs text-gray-400">{sub}</p>
+                <p className="text-xs text-gray-600 dark:text-cream-deep">{label}</p>
+                <p className="text-xs text-gray-500 dark:text-cream-deep">{sub}</p>
               </div>
             </div>
           ))}
@@ -59,7 +59,7 @@ const StudentDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Today's Lectures */}
-          <div className="card p-5">
+          <div className="card dashboard-panel p-5">
             <h2 className="font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
               <i className="fa-solid fa-calendar-day text-primary-600" /> محاضرات اليوم
             </h2>
@@ -81,7 +81,7 @@ const StudentDashboard = () => {
                     <div className={`w-2 h-10 rounded-full flex-shrink-0 ${lec.current ? 'bg-primary-600' : 'bg-gray-200 dark:bg-dark-border'}`} />
                     <div className="flex-1">
                       <p className={`font-semibold text-sm ${lec.current ? 'text-primary-700 dark:text-primary-300' : 'text-gray-700 dark:text-gray-300'}`}>{lec.course}</p>
-                      <p className="text-xs text-gray-400">{lec.time} | قاعة {lec.room}</p>
+                      <p className="text-xs text-gray-500 dark:text-cream-deep">{lec.time} | قاعة {lec.room}</p>
                     </div>
                     {lec.current && <span className="badge-primary text-xs">الآن</span>}
                   </div>
@@ -91,7 +91,7 @@ const StudentDashboard = () => {
           </div>
 
           {/* To-Do List */}
-          <div className="card p-5">
+          <div className="card dashboard-panel p-5">
             <h2 className="font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
               <i className="fa-solid fa-list-check text-accent-600" /> قائمة المهام
             </h2>
@@ -116,24 +116,24 @@ const StudentDashboard = () => {
         </div>
 
         {/* My Courses */}
-        <div className="card p-5">
+        <div className="card dashboard-panel p-5">
           <h2 className="font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             <i className="fa-solid fa-book text-primary-600" /> مقرراتي
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {STUDENT_COURSES.map(c => (
-              <div key={c.id} className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-dark-border/30 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors border border-gray-100 dark:border-dark-border">
+              <div key={c.id} className="dashboard-course-row flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-dark-border/30 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors border border-gray-100 dark:border-dark-border">
                 <div className="w-10 h-10 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
-                  <i className="fa-solid fa-book-open text-primary-600" />
+                  <i className="fa-solid fa-book-open text-primary-600 dark:text-gold" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-gray-900 dark:text-white text-sm truncate">{c.name}</p>
-                  <p className="text-xs text-gray-400">{c.doctor} • {c.lectures} محاضرة</p>
+                  <p className="text-xs text-gray-500 dark:text-cream-deep">{c.doctor} • {c.lectures} محاضرة</p>
                 </div>
                 {c.grade !== null ? (
-                  <span className={`font-black text-lg ${c.grade >= 90 ? 'text-green-600' : c.grade >= 75 ? 'text-primary-600' : 'text-orange-500'}`}>{c.grade}</span>
+                  <span className="grade-chip">{c.grade}</span>
                 ) : (
-                  <span className="badge-gray text-xs">جارية</span>
+                  <span className="badge-gray text-xs dark-readable-badge">جارية</span>
                 )}
               </div>
             ))}

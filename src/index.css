@@ -244,6 +244,100 @@
   .dark .badge-warning { background: rgba(180,130,30,0.15); color: #C8A040; border-color: rgba(180,130,30,0.25); }
   .dark .badge-danger  { background: rgba(139,58,42,0.15); color: #C05040; border-color: rgba(139,58,42,0.25); }
 
+
+  .badge-primary { @apply badge; background: rgba(45,74,34,0.12); color: #2D4A22; border: 1px solid rgba(45,74,34,0.24); }
+  .badge-accent  { @apply badge; background: rgba(200,169,110,0.18); color: #7A5A20; border: 1px solid rgba(200,169,110,0.34); }
+  .dark .badge-primary { background: rgba(200,169,110,0.18); color: #F5DFA6; border-color: rgba(200,169,110,0.35); }
+  .dark .badge-accent  { background: rgba(45,74,34,0.35); color: #D7F0C8; border-color: rgba(122,170,106,0.35); }
+
+  .dashboard-panel,
+  .dashboard-course-card,
+  .dashboard-stat-card {
+    color: #1A1A14;
+  }
+  .dark .dashboard-panel,
+  .dark .dashboard-course-card,
+  .dark .dashboard-stat-card,
+  .dark .dashboard-course-row {
+    background: #171D12 !important;
+    border-color: rgba(200,169,110,0.28) !important;
+    color: #F5F0E8 !important;
+  }
+  .dark .dashboard-course-row:hover,
+  .dark .dashboard-course-card:hover {
+    background: #1E2817 !important;
+    border-color: rgba(200,169,110,0.48) !important;
+  }
+  .dark .dashboard-panel h2,
+  .dark .dashboard-course-card h3,
+  .dark .dashboard-course-row p:first-child {
+    color: #FFF8EA !important;
+  }
+  .dark .dashboard-muted,
+  .dark .course-meta,
+  .dark .dashboard-panel .text-gray-400,
+  .dark .dashboard-panel .text-gray-500,
+  .dark .dashboard-course-card .text-gray-400,
+  .dark .dashboard-course-card .text-gray-500,
+  .dark .dashboard-course-row .text-gray-400 {
+    color: #D8CCB8 !important;
+  }
+  .dashboard-icon,
+  .dark .dashboard-icon,
+  .dark .stat-icon {
+    color: #FFF8EA !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  }
+  .dark .text-primary-600,
+  .dark .text-accent-600 {
+    color: #F3D58A !important;
+  }
+  .dark .bg-primary-100,
+  .dark .bg-accent-100 {
+    background: rgba(200,169,110,0.18) !important;
+  }
+
+  .grade-chip,
+  .grade-inline,
+  .grade-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    min-height: 2rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 0.7rem;
+    background: #FFFFFF;
+    color: #1A1A14;
+    border: 1px solid #DDD3C2;
+    font-weight: 800;
+    box-shadow: 0 2px 8px rgba(26,26,20,0.08);
+  }
+  .grade-inline { gap: 0.35rem; min-width: auto; font-size: 0.75rem; }
+  .grade-pill-total { background: #2D4A22; color: #F5F0E8; border-color: #2D4A22; }
+  .dark .grade-chip,
+  .dark .grade-inline,
+  .dark .grade-pill {
+    background: #F5F0E8;
+    color: #10140D;
+    border-color: #C8A96E;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  }
+  .dark .grade-pill-total { background: #C8A96E; color: #10140D; border-color: #C8A96E; }
+  .grade-letter { display: inline-flex; min-width: 3.5rem; justify-content: center; font-weight: 900; font-size: 1rem; }
+  .grade-letter-success { color: #137333; }
+  .grade-letter-good { color: #2D4A22; }
+  .grade-letter-warn { color: #8A6010; }
+  .grade-letter-danger { color: #B3261E; }
+  .grade-letter-progress { color: #1A73E8; }
+  .dark .grade-letter-success { color: #8FE388; }
+  .dark .grade-letter-good { color: #F3D58A; }
+  .dark .grade-letter-warn { color: #FFD166; }
+  .dark .grade-letter-danger { color: #FF9B8F; }
+  .dark .grade-letter-progress { color: #9FCBFF; }
+
+  .dark-readable-badge { color: #F5F0E8 !important; border-color: rgba(245,240,232,0.25) !important; }
+
   /* ── Tables ── */
   .data-table { @apply w-full border-collapse text-sm; }
   .data-table th {
@@ -254,16 +348,16 @@
     letter-spacing: 0.08em;
   }
   .dark .data-table th {
-    background: #1E2218;
-    color: #7A7A6A;
-    border-color: #2A2E24;
+    background: #1E2817;
+    color: #E8E2D8;
+    border-color: rgba(200,169,110,0.28);
   }
   .data-table td {
     @apply px-4 py-3;
     border-bottom: 1px solid #EAE2D4;
     color: #3A3A2E;
   }
-  .dark .data-table td { border-color: #2A2E24; color: #C0C0B0; }
+  .dark .data-table td { border-color: rgba(200,169,110,0.18); color: #F5F0E8; }
   .data-table tbody tr:hover { background: rgba(200,169,110,0.05); }
   .dark .data-table tbody tr:hover { background: rgba(200,169,110,0.04); }
 
@@ -371,3 +465,505 @@
   color: #E8E2D8;
 }
 .dark .card { background: #161A12; border-color: #2A2E24; }
+
+
+/* Accessibility contrast patch for dark dashboard pages */
+.dark .card .text-gray-400,
+.dark .card .text-gray-500,
+.dark .card .text-gray-600 { color: #D8CCB8 !important; }
+.dark .card .text-gray-700,
+.dark .card .text-gray-800,
+.dark .card .text-gray-900 { color: #FFF8EA !important; }
+.dark .card .border-gray-100 { border-color: rgba(200,169,110,0.22) !important; }
+.dark .card .bg-gray-50 { background: #1E2817 !important; }
+
+/* ── Bilingual layout + high contrast light/dark polish ── */
+html[dir="ltr"] body { direction: ltr; }
+html[dir="ltr"] .section-tag::before { margin-right: 0.25rem; }
+html[dir="ltr"] .sidebar-link { border-right: 0; border-left: 2px solid transparent; }
+html[dir="ltr"] .data-table th { text-align: left; }
+html[dir="rtl"] .data-table th { text-align: right; }
+
+/* Keep text visible against every theme surface. */
+.dark .text-gray-300,
+.dark .text-gray-400,
+.dark .text-gray-500,
+.dark .text-gray-600,
+.dark .text-gray-700 { color: #D8CCB8 !important; }
+.dark .text-gray-800,
+.dark .text-gray-900 { color: #FFF8EA !important; }
+.dark label,
+.dark .input-label { color: #F5F0E8 !important; }
+.dark .section-subtitle { color: #D8CCB8 !important; }
+.dark .card p,
+.dark .card span,
+.dark .card li { color: inherit; }
+
+/* Admissions pages: explicit contrast fix requested for /admissions/apply. */
+.apply-page {
+  background: #F5F0E8;
+  color: #1A1A14;
+}
+.dark .apply-page {
+  background: #0F130C;
+  color: #FFF8EA;
+}
+.apply-card,
+.apply-page .card {
+  background: #FFFFFF;
+  color: #1A1A14;
+  border-color: #C8BCA8;
+}
+.dark .apply-card,
+.dark .apply-page .card {
+  background: #161A12;
+  color: #FFF8EA;
+  border-color: rgba(200,169,110,0.34);
+}
+.apply-page .input-field,
+.apply-page select,
+.apply-page textarea {
+  background: #FFFFFF;
+  color: #111111;
+  border-color: #B7AA95;
+}
+.dark .apply-page .input-field,
+.dark .apply-page select,
+.dark .apply-page textarea {
+  background: #10140D;
+  color: #FFF8EA;
+  border-color: rgba(200,169,110,0.5);
+}
+.apply-page .input-field::placeholder { color: #6B6256; opacity: 1; }
+.dark .apply-page .input-field::placeholder { color: #CFC2AC; opacity: 1; }
+.apply-page .section-tag,
+.apply-page .text-primary-600 { color: #24401B !important; }
+.dark .apply-page .section-tag,
+.dark .apply-page .text-primary-600,
+.dark .apply-page .dark\:text-primary-300 { color: #F3D58A !important; }
+.apply-page .bg-primary-50 { background: #ECF5E8 !important; }
+.dark .apply-page .dark\:bg-primary-900\/20 { background: rgba(200,169,110,0.14) !important; }
+.apply-page .border-primary-200 { border-color: #A7C699 !important; }
+.dark .apply-page .dark\:border-primary-800 { border-color: rgba(200,169,110,0.42) !important; }
+
+/* New support pages and footer links. */
+.support-page { background: #F5F0E8; color: #1A1A14; }
+.dark .support-page { background: #0F130C; color: #FFF8EA; }
+.support-card,
+.admission-service-card {
+  background: #FFFFFF;
+  color: #1A1A14;
+  border: 1px solid #C8BCA8;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(26,26,20,0.05);
+}
+.dark .support-card,
+.dark .admission-service-card {
+  background: #161A12;
+  color: #FFF8EA;
+  border-color: rgba(200,169,110,0.34);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.24);
+}
+.admission-service-card { transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+.admission-service-card:hover { transform: translateY(-3px); border-color: #2D4A22; background: #FFFDF8; }
+.dark .admission-service-card:hover { border-color: #C8A96E; background: #1E2817; }
+.support-title { color: #1A1A14; }
+.dark .support-title { color: #FFF8EA; }
+.support-muted { color: #4A443A; }
+.dark .support-muted { color: #D8CCB8; }
+.support-icon { color: #2D4A22; }
+.dark .support-icon { color: #C8A96E; }
+.support-icon-box {
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #EAF2E5;
+  color: #2D4A22;
+  font-size: 1.1rem;
+}
+.dark .support-icon-box { background: rgba(200,169,110,0.16); color: #F3D58A; }
+.support-link { color: #24401B; font-weight: 700; }
+.dark .support-link { color: #F3D58A; }
+.footer-link { color: #D8CCB8; }
+.footer-link:hover { color: #FFF8EA; }
+.footer-social {
+  border: 1px solid #4B4638;
+  border-radius: 2px;
+  color: #D8CCB8;
+}
+.footer-social:hover {
+  background: #2D4A22;
+  border-color: #2D4A22;
+  color: #C8A96E;
+}
+
+/* Partner strip and small muted labels from previous screenshots. */
+.dark .bg-white\/20 { color: #FFFFFF; }
+.dark .badge,
+.dark .badge-primary,
+.dark .badge-accent,
+.dark .badge-success,
+.dark .badge-warning,
+.dark .badge-danger { font-weight: 800; }
+
+/* English layout polish: clean LTR typography, safer navbar wrapping, and better hero proportions. */
+html[lang="en"] body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+}
+html[lang="en"] p,
+html[lang="en"] span,
+html[lang="en"] li,
+html[lang="en"] td,
+html[lang="en"] th,
+html[lang="en"] label,
+html[lang="en"] input,
+html[lang="en"] button,
+html[lang="en"] select,
+html[lang="en"] textarea,
+html[lang="en"] a {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4,
+html[lang="en"] .section-title {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.035em;
+}
+html[lang="en"] .section-title {
+  line-height: 1.05;
+}
+html[lang="en"] .section-tag {
+  letter-spacing: 0.16em;
+}
+html[lang="en"] .btn-primary,
+html[lang="en"] .btn-gold,
+html[lang="en"] .btn-outline,
+html[lang="en"] .btn-ghost {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+html[lang="en"] .data-table th,
+html[lang="en"] .data-table td {
+  text-align: left;
+}
+html[lang="en"] .sidebar-link {
+  border-right: 0;
+  border-left: 2px solid transparent;
+}
+html[lang="en"] .sidebar-link:hover,
+html[lang="en"] .sidebar-link.active {
+  border-left-color: currentColor;
+}
+@media (min-width: 1280px) and (max-width: 1380px) {
+  html[lang="en"] header nav {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+@media (max-width: 640px) {
+  html[lang="en"] h1 {
+    letter-spacing: -0.035em;
+  }
+}
+
+/* =========================================================
+   Full dark mode coverage + contrast hardening
+   Fixes pages/sections that used inline light backgrounds and muted text.
+   ========================================================= */
+html.dark,
+html.dark body,
+html.dark #root {
+  background: #0B0F08 !important;
+  color: #F7F2E8 !important;
+}
+
+html.dark body {
+  --dark-page: #0B0F08;
+  --dark-surface: #12180F;
+  --dark-surface-2: #182012;
+  --dark-border: rgba(200,169,110,0.32);
+  --dark-text: #FFF8EA;
+  --dark-muted: #D8CCB8;
+  --dark-gold: #F3D58A;
+}
+
+/* Force public sections and dashboard wrappers to actually become dark. */
+html.dark main,
+html.dark .min-h-screen,
+html.dark .support-page,
+html.dark .apply-page,
+html.dark .bg-cream,
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-white,
+html.dark .bg-white\/80,
+html.dark .bg-gold-pale {
+  background: var(--dark-page) !important;
+  color: var(--dark-text) !important;
+}
+
+html.dark section:not(.keep-light),
+html.dark article:not(.keep-light) {
+  background-color: var(--dark-page) !important;
+  color: var(--dark-text) !important;
+}
+
+/* Override React inline light backgrounds without touching images. */
+html.dark div[style*="background: white"],
+html.dark div[style*="background: #fff"],
+html.dark div[style*="background: #FFF"],
+html.dark div[style*="background: rgb(255, 255, 255)"],
+html.dark div[style*="background: #F5F0E8"],
+html.dark div[style*="background: #f5f0e8"],
+html.dark div[style*="background: rgb(245, 240, 232)"],
+html.dark div[style*="background: #F0E6D0"],
+html.dark div[style*="background: #f0e6d0"],
+html.dark div[style*="background: rgb(240, 230, 208)"],
+html.dark section[style*="background: white"],
+html.dark section[style*="background: #fff"],
+html.dark section[style*="background: #FFF"],
+html.dark section[style*="background: rgb(255, 255, 255)"],
+html.dark section[style*="background: #F5F0E8"],
+html.dark section[style*="background: #f5f0e8"],
+html.dark section[style*="background: rgb(245, 240, 232)"],
+html.dark section[style*="background: #F0E6D0"],
+html.dark section[style*="background: #f0e6d0"],
+html.dark section[style*="background: rgb(240, 230, 208)"] {
+  background: var(--dark-page) !important;
+  color: var(--dark-text) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Cards and panels: dark surfaces, not white boxes on dark pages. */
+html.dark .card,
+html.dark .card-hover,
+html.dark .stat-card,
+html.dark .dashboard-panel,
+html.dark .dashboard-course-card,
+html.dark .dashboard-stat-card,
+html.dark .dashboard-course-row,
+html.dark .support-card,
+html.dark .admission-service-card,
+html.dark .apply-card,
+html.dark form,
+html.dark table,
+html.dark .modal-content,
+html.dark [class*="rounded-xl"].bg-white,
+html.dark [class*="rounded-lg"].bg-white,
+html.dark [class*="bg-gray-50"],
+html.dark [class*="bg-gray-100"] {
+  background: var(--dark-surface) !important;
+  color: var(--dark-text) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html.dark .card:hover,
+html.dark .card-hover:hover,
+html.dark .support-card:hover,
+html.dark .admission-service-card:hover,
+html.dark .dashboard-course-card:hover,
+html.dark .dashboard-course-row:hover {
+  background: var(--dark-surface-2) !important;
+  border-color: rgba(243,213,138,0.58) !important;
+}
+
+/* Strong text must stay bright on black backgrounds. */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark .section-title,
+html.dark .support-title,
+html.dark .text-ink,
+html.dark .text-black,
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+html.dark .dark\:text-white,
+html.dark [class*="text-gray-900"],
+html.dark [class*="text-gray-800"] {
+  color: var(--dark-text) !important;
+}
+
+/* Muted text should be beige, not grey-on-black. */
+html.dark p,
+html.dark li,
+html.dark label,
+html.dark small,
+html.dark td,
+html.dark th,
+html.dark .section-subtitle,
+html.dark .support-muted,
+html.dark .text-muted,
+html.dark .text-gray-300,
+html.dark .text-gray-400,
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700,
+html.dark [class*="text-gray-300"],
+html.dark [class*="text-gray-400"],
+html.dark [class*="text-gray-500"],
+html.dark [class*="text-gray-600"],
+html.dark [class*="text-gray-700"] {
+  color: var(--dark-muted) !important;
+}
+
+/* Inline colors used in home/public pages. */
+html.dark [style*="color: #1A1A14"],
+html.dark [style*="color: #1a1a14"],
+html.dark [style*="color: rgb(26, 26, 20)"],
+html.dark [style*="color: #3A3A2E"],
+html.dark [style*="color: #3a3a2e"],
+html.dark [style*="color: rgb(58, 58, 46)"] {
+  color: var(--dark-text) !important;
+}
+
+html.dark [style*="color: #5C5C4E"],
+html.dark [style*="color: #5c5c4e"],
+html.dark [style*="color: rgb(92, 92, 78)"],
+html.dark [style*="color: #8A8A7A"],
+html.dark [style*="color: #8a8a7a"],
+html.dark [style*="color: rgb(138, 138, 122)"],
+html.dark [style*="color: #A0A090"],
+html.dark [style*="color: #a0a090"],
+html.dark [style*="color: rgb(160, 160, 144)"] {
+  color: var(--dark-muted) !important;
+}
+
+/* Green text becomes gold on dark backgrounds for visible contrast. */
+html.dark .text-forest,
+html.dark .text-primary-600,
+html.dark .text-primary-700,
+html.dark .support-icon,
+html.dark [style*="color: #2D4A22"],
+html.dark [style*="color: #2d4a22"],
+html.dark [style*="color: rgb(45, 74, 34)"] {
+  color: var(--dark-gold) !important;
+}
+
+html.dark a:not(.btn-primary):not(.btn-gold):not(.btn-outline):not(.btn-danger) {
+  color: var(--dark-gold);
+}
+html.dark a:not(.btn-primary):not(.btn-gold):not(.btn-outline):not(.btn-danger):hover {
+  color: #FFF1BD;
+}
+
+/* Inputs, selects, uploads and search fields. */
+html.dark input,
+html.dark select,
+html.dark textarea,
+html.dark .input-field {
+  background: #0E130B !important;
+  color: var(--dark-text) !important;
+  border-color: rgba(200,169,110,0.48) !important;
+  caret-color: var(--dark-gold);
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder,
+html.dark .input-field::placeholder {
+  color: #CFC2AC !important;
+  opacity: 1 !important;
+}
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus,
+html.dark .input-field:focus {
+  border-color: var(--dark-gold) !important;
+  box-shadow: 0 0 0 3px rgba(243,213,138,0.16) !important;
+}
+
+/* Tables/grades remain readable. */
+html.dark .data-table,
+html.dark .data-table tbody,
+html.dark .data-table tr {
+  background: var(--dark-surface) !important;
+  color: var(--dark-text) !important;
+}
+html.dark .data-table th {
+  background: var(--dark-surface-2) !important;
+  color: var(--dark-gold) !important;
+  border-color: var(--dark-border) !important;
+}
+html.dark .data-table td {
+  color: var(--dark-text) !important;
+  border-color: rgba(200,169,110,0.20) !important;
+}
+html.dark .grade-chip,
+html.dark .grade-inline,
+html.dark .grade-pill {
+  background: #FFF8EA !important;
+  color: #10140D !important;
+  border-color: var(--dark-gold) !important;
+}
+
+/* Badges/icons/buttons exceptions. */
+html.dark .btn-gold,
+html.dark .btn-gold * {
+  background: #C8A96E !important;
+  color: #10140D !important;
+  border-color: #C8A96E !important;
+}
+html.dark .btn-primary,
+html.dark .btn-primary * {
+  color: #FFF8EA !important;
+}
+html.dark .btn-outline,
+html.dark .btn-outline * {
+  color: var(--dark-gold) !important;
+  border-color: var(--dark-gold) !important;
+}
+html.dark .btn-outline:hover,
+html.dark .btn-outline:hover * {
+  background: var(--dark-gold) !important;
+  color: #10140D !important;
+}
+html.dark .badge,
+html.dark .badge-primary,
+html.dark .badge-accent,
+html.dark .badge-success,
+html.dark .badge-warning,
+html.dark .badge-danger,
+html.dark .badge-gray {
+  color: #FFF8EA !important;
+  border-color: rgba(243,213,138,0.42) !important;
+}
+html.dark .badge-gold,
+html.dark .badge-accent {
+  background: rgba(243,213,138,0.22) !important;
+  color: #FFF1BD !important;
+}
+
+/* Borders/dividers that were still light. */
+html.dark .border,
+html.dark .border-t,
+html.dark .border-b,
+html.dark .border-l,
+html.dark .border-r,
+html.dark [class*="border-gray"],
+html.dark [style*="border: 1px solid #DDD3C2"],
+html.dark [style*="border-bottom: 1px solid #DDD3C2"],
+html.dark [style*="borderColor"] {
+  border-color: var(--dark-border) !important;
+}
+
+/* Partner/logo strip: dark shell while keeping logos visible. */
+html.dark .bg-white\/20,
+html.dark .bg-white\/80 {
+  background: rgba(245,240,232,0.10) !important;
+  border-color: rgba(243,213,138,0.32) !important;
+  color: var(--dark-text) !important;
+}
+
+/* Selection and code contrast. */
+html.dark code,
+html.dark pre {
+  background: #1C2516 !important;
+  color: #FFF1BD !important;
+  border-color: var(--dark-border) !important;
+}
